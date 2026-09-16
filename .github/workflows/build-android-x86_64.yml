@@ -6,7 +6,6 @@ on:
 env:
   ANDROID_NDK_VERSION: r27c
   FLUTTER_VERSION: 3.24.5
-  RUST_TOOLCHAIN: stable
 
 jobs:
   build:
@@ -26,7 +25,18 @@ jobs:
             libgtk-3-dev libxcb-randr0-dev libxdo-dev \
             libxfixes-dev libxcb-shape0-dev libxcb-xfixes0-dev \
             libasound2-dev libpulse-dev libgstreamer1.0-dev \
-            libgstreamer-plugins-base1.0-dev
+            libgstreamer-plugins-base1.0-dev \
+            libopus-dev libsodium-dev libvpx-dev libyuv-dev
+
+      - name: Setup vcpkg
+        run: |
+          git clone https://github.com/microsoft/vcpkg.git /opt/vcpkg
+          /opt/vcpkg/bootstrap-vcpkg.sh
+          echo "VCPKG_ROOT=/opt/vcpkg" >> $GITHUB_ENV
+
+      - name: Install vcpkg packages
+        run: |
+          /opt/vcpkg/vcpkg install opus libvpx libyuv libsodium
 
       - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
