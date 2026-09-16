@@ -16,3 +16,6 @@ rustflags = [
 #]
 [net]
 git-fetch-with-cli = true
+
+[target.x86_64-linux-android]
+linker = "C:\\Users\\ASUS\\AppData\\Local\\Android\\ndk\\30.0.16248370\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\x86_64-linux-android21-clang.cmd"
