@@ -1,11 +1,11 @@
 [package]
-name = "cevizsoft-remote"
+name = "rustdesk"
 version = "1.4.9"
 authors = ["rustdesk <info@rustdesk.com>"]
 edition = "2021"
 build= "build.rs"
 description = "CevizSoft Remote - Uzaktan Yonetim"
-default-run = "cevizsoft-remote"
+default-run = "rustdesk"
 rust-version = "1.75"
 
 [lib]
